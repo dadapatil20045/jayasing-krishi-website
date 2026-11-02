@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Krushi Seva Kendra | Fertilizers, Seeds & Agricultural Support</title>
+
+  <style>
+    :root {
+      --green-dark: #123d22;
+      --green: #236a35;
+      --green-light: #5ea65c;
+      --cream: #f7f5ec;
+      --gold: #e4a93d;
+      --text: #1e2a1e;
+      --muted: #5f6d5d;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(1140px, 92%);
+      margin: auto;
+    }
+
+    /* Navigation */
+    nav {
+      background: var(--green-dark);
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .navbar {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .call-button {
+      background: var(--gold);
+      color: #222 !important;
+      padding: 10px 16px;
+      border-radius: 7px;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 560px;
+      display: flex;
+      align-items: center;
+      color: white;
+      background:
+        linear-gradient(90deg, rgba(10, 49, 24, 0.88), rgba(10, 49, 24, 0.35)),
+        url("image.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-content {
+      max-width: 720px;
+      padding: 70px 0;
+    }
+
+    .tag {
+      display: inline-block;
+      color: #f8df9a;
+      font-weight: bold;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 6vw, 68px);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 620px;
+      color: #f4f8ef;
+      margin-bottom: 28px;
+    }
+
+    .button {
+      display: inline-block;
+      text-decoration: none;
+      background: var(--gold);
+      color: #1d2c16;
+      font-weight: bold;
+      padding: 14px 22px;
+      border-radius: 7px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+
+    .button-outline {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+
+    /* Features */
+    .features {
+      background: var(--green-dark);
+      color: white;
+      padding: 28px 0;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .feature-box {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .feature-icon {
+      font-size: 32px;
+    }
+
+    .feature-box h3 {
+      font-size: 17px;
+    }
+
+    .feature-box p {
+      font-size: 13px;
+      color: #d9e7d6;
+    }
+
+    /* Common section */
+    section {
+      padding: 78px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 15px;
+      color: var(--green-dark);
+      font-size: 35px;
+    }
+
+    .section-description {
+      text-align: center;
+      max-width: 700px;
+      color: var(--muted);
+      margin: 0 auto 40px;
+    }
+
+    /* Products */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 12px;
+      padding: 27px 20px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(39, 83, 44, 0.10);
+      border-bottom: 4px solid var(--green-light);
+      transition: transform 0.2s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-7px);
+    }
+
+    .product-icon {
+      font-size: 48px;
+      margin-bottom: 12px;
+    }
+
+    .product-card h3 {
+      color: var(--green-dark);
+      margin-bottom: 8px;
+      font-size: 20px;
+    }
+
+    .product-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* About */
+    .about {
+      background: #e7efdc;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .about-image {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 10px 28px rgba(27, 64, 33, 0.18);
+    }
+
+    .about-content h2 {
+      font-size: 38px;
+      color: var(--green-dark);
+      margin-bottom: 15px;
+    }
+
+    .about-content p {
+      color: var(--muted);
+      margin-bottom: 15px;
+    }
+
+    .list {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .list li {
+      margin-bottom: 10px;
+      color: var(--text);
+      font-weight: bold;
+    }
+
+    /* Contact */
+    .contact {
+      background: var(--green-dark);
+      color: white;
+    }
+
+    .contact .section-title {
+      color: white;
+    }
+
+    .contact .section-description {
+      color: #dcead7;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+      align-items: start;
+    }
+
+    .contact-details {
+      background: rgba(255, 255, 255, 0.10);
+      padding: 28px;
+      border-radius: 12px;
+    }
+
+    .contact-details h3 {
+      margin-bottom: 15px;
+      color: #ffd87e;
+    }
+
+    .contact-details p {
+      margin-bottom: 10px;
+      color: #eff7eb;
+    }
+
+    .form-box {
+      background: white;
+      color: var(--text);
+      padding: 28px;
+      border-radius: 12px;
+    }
+
+    .form-box h3 {
+      color: var(--green-dark);
+      margin-bottom: 14px;
+      font-size: 24px;
+    }
+
+    label {
+      font-weight: bold;
+      font-size: 14px;
+      display: block;
+      margin: 12px 0 5px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #c9d4c6;
+      border-radius: 6px;
+      font-size: 15px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .submit-button {
+      margin-top: 18px;
+      width: 100%;
+      padding: 13px;
+      border: none;
+      border-radius: 6px;
+      background: var(--green-dark);
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .submit-button:hover {
+      background: var(--green);
+    }
+
+    .success-message {
+      display: none;
+      margin-top: 15px;
+      padding: 12px;
+      border-radius: 6px;
+      background: #dff3df;
+      color: #155724;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    /* Footer */
+    footer {
+      background: #0b2513;
+      color: #c9d9c5;
+      text-align: center;
+      padding: 23px;
+      font-size: 14px;
+    }
+
+    /* Mobile */
+    @media (max-width: 850px) {
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .navbar {
+        padding: 15px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        gap: 13px;
+      }
+
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 510px;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .section-title {
+        font-size: 30px;
+      }
+
+      section {
+        padding: 58px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="container navbar">
+      <a href="#" class="logo">Krushi <span>Seva Kendra</span></a>
+
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+        <a href="tel:+919876543210" class="call-button">Call Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="home">
+    <div class="container hero-content">
+      <div class="tag">For Farmers • For Better Harvests</div>
+
+      <h1>Trusted Agricultural Solutions for Every Farmer</h1>
+
+      <p>
+        Krushi Seva Kendra provides quality fertilizers, seeds, pesticides,
+        crop nutrition, and reliable farming guidance for healthier crops
+        and better yields.
+      </p>
+
+      <a href="#products" class="button">Explore Products</a>
+      <a href="#contact" class="button button-outline">Contact Us</a>
+    </div>
+  </header>
+
+  <div class="features">
+    <div class="container feature-grid">
+      <div class="feature-box">
+        <div class="feature-icon">🌱</div>
+        <div>
+          <h3>Quality Products</h3>
+          <p>Trusted fertilizers, seeds and crop-care products.</p>
+        </div>
+      </div>
+
+      <div class="feature-box">
+        <div class="feature-icon">👨‍🌾</div>
+        <div>
+          <h3>Farmer Guidance</h3>
+          <p>Helpful advice for crops, soil and seasonal farming.</p>
+        </div>
+      </div>
+
+      <div class="feature-box">
+        <div class="feature-icon">🚜</div>
+        <div>
+          <h3>Better Harvest</h3>
+          <p>Supporting productive, sustainable farming practices.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="products">
+    <div class="container">
+      <h2 class="section-title">Our Agricultural Products</h2>
+
+      <p class="section-description">
+        Everything farmers need for sowing, crop growth, protection and a
+        successful harvest—all available under one roof.
+      </p>
+
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-icon">🧪</div>
+          <h3>Fertilizers</h3>
+          <p>Urea, DAP, NPK, organic fertilizers, micronutrients and crop nutrition products.</p>
+        </div>
+
+        <div class="product-card">
+          <div class="product-icon">🌾</div>
+          <h3>Quality Seeds</h3>
+          <p>Vegetable, grain, fruit and seasonal crop seeds from trusted brands.</p>
+        </div>
+
+        <div class="product-card">
+          <div class="product-icon">🛡️</div>
+          <h3>Crop Protection</h3>
+          <p>Insecticides, pesticides, fungicides, herbicides and pest-control solutions.</p>
+        </div>
+
+        <div class="product-card">
+          <div class="product-icon">💧</div>
+          <h3>Farm Essentials</h3>
+          <p>Sprayers, irrigation items, farming tools and useful agricultural accessories.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="container about-grid">
+      <img src="image.jpg" alt="Krushi Seva Kendra shop or farming image" class="about-image">
+
+      <div class="about-content">
+        <h2>Serving Farmers With Trust</h2>
+
+        <p>
+          Krushi Seva Kendra is committed to supporting local farmers with
+          genuine agricultural products and practical guidance.
+        </p>
+
+        <p>
+          We believe that the right seed, fertilizer and crop-care solution
+          can make a real difference to farm productivity and income.
+        </p>
+
+        <ul class="list">
+          <li>✓ Genuine agricultural products</li>
+          <li>✓ Guidance for crop care and nutrition</li>
+          <li>✓ Products for every farming season</li>
+          <li>✓ Service focused on farmer success</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact Krushi Seva Kendra</h2>
+
+      <p class="section-description">
+        Need fertilizers, seeds, farming products, or crop guidance? Send us
+        your details and we will get in touch.
+      </p>
+
+      <div class="contact-grid">
+        <div class="contact-details">
+          <h3>Visit Our Shop</h3>
+
+          <!-- Change these details to your real details -->
+          <p><strong>Shop Name:</strong> Krushi Seva Kendra</p>
+          <p><strong>Address:</strong> Pimpri, Maharashtra, India</p>
+          <p><strong>Phone:</strong> +91 98765 43210</p>
+          <p><strong>Email:</strong> krushisevakendra@example.com</p>
+          <p><strong>Working Hours:</strong> Monday to Saturday, 9:00 AM to 7:00 PM</p>
+        </div>
+
+        <form class="form-box" id="farmerForm">
+          <h3>Send an Enquiry</h3>
+
+          <label for="name">Farmer Name</label>
+          <input type="text" id="name" placeholder="Enter your full name" required>
+
+          <label for="phone">Mobile Number</label>
+          <input type="tel" id="phone" placeholder="+91 98765 43210" required>
+
+          <label for="village">Village / Area</label>
+          <input type="text" id="village" placeholder="Enter your village or area">
+
+          <label for="requirement">What do you need?</label>
+          <select id="requirement">
+            <option>Fertilizers</option>
+            <option>Seeds</option>
+            <option>Pesticides / Insecticides</option>
+            <option>Crop Guidance</option>
+            <option>Farm Tools / Equipment</option>
+            <option>Other</option>
+          </select>
+
+          <label for="message">Your Message</label>
+          <textarea id="message" placeholder="Tell us about your crop or product requirement"></textarea>
+
+          <button type="submit" class="submit-button">Submit Enquiry</button>
+
+          <div class="success-message" id="successMessage">
+            Thank you! Your enquiry has been submitted successfully.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Krushi Seva Kendra | Supporting Farmers, Growing Together</p>
+  </footer>
+
+  <script>
+    document.getElementById("farmerForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      document.getElementById("successMessage").style.display = "block";
+
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>
